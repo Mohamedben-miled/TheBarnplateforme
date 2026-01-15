@@ -1,0 +1,12 @@
+<?php
+
+class GuestMiddleware {
+    public function handle() {
+        if (isset($_SESSION['user_id'])) {
+            header('Location: /dashboard');
+            exit;
+        }
+        return true;
+    }
+}
+
