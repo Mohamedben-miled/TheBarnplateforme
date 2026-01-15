@@ -1,5 +1,6 @@
 <?php
-$title = 'Home - The Barn Coworking';
+$title = 'The Barn – Workshop & Training Space in Soukra';
+$metaDescription = 'A flexible event space for workshops, trainings, clubs, and coaches. Rent by the hour in Soukra.';
 ob_start();
 ?>
 
@@ -141,9 +142,122 @@ ob_start();
 <!-- Divider Line -->
 <div style="border-top: 1px solid var(--border-color); margin: 0;"></div>
 
-<!-- Communities & Partners Section - Exact Match -->
-<section style="margin: 0; padding: 5rem 0; background: var(--bg-light);">
+<!-- Upcoming Events Section -->
+<?php if (!empty($featuredEvents) && count($featuredEvents) > 0): ?>
+<section style="margin: 0; padding: 6rem 0; background: var(--bg-light);">
     <div class="container" style="max-width: 1400px; margin: 0 auto; padding: 0 40px;">
+        <h2 style="text-align: center; font-size: 2.5rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 1rem; font-family: 'Georgia', serif; line-height: 1.3;">
+            Upcoming Events
+        </h2>
+        <p style="text-align: center; font-size: 1.1rem; color: var(--text-medium); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+            Discover workshops, trainings, and sessions happening soon at The Barn.
+        </p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+            <?php foreach (array_slice($featuredEvents, 0, 4) as $event): ?>
+                <div class="card" style="background: white; border-radius: 16px; padding: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid rgba(139, 90, 60, 0.1); transition: all 0.3s ease;">
+                    <h3 class="card-title" style="font-size: 1.5rem; font-weight: 700; color: #2C1810; margin-bottom: 1rem; font-family: 'Inter', sans-serif;">
+                        <?= htmlspecialchars($event['title']) ?>
+                    </h3>
+                    <p style="color: var(--text-medium); margin-bottom: 1rem; line-height: 1.6;">
+                        <?= htmlspecialchars(substr($event['description'], 0, 120)) ?><?= strlen($event['description']) > 120 ? '...' : '' ?>
+                    </p>
+                    <div style="margin-bottom: 1.5rem;">
+                        <p style="margin-bottom: 0.5rem; color: var(--text-dark); font-weight: 500;">
+                            <strong>📅 Date:</strong> <?= date('F j, Y', strtotime($event['event_date'])) ?>
+                        </p>
+                        <p style="margin-bottom: 0.5rem; color: var(--text-dark); font-weight: 500;">
+                            <strong>🕐 Time:</strong> <?= date('g:i A', strtotime($event['start_time'])) ?> - <?= date('g:i A', strtotime($event['end_time'])) ?>
+                        </p>
+                        <?php if (!empty($event['first_name'])): ?>
+                            <p style="color: var(--text-light); font-size: 0.9rem;">
+                                Hosted by: <?= htmlspecialchars($event['first_name'] . ' ' . $event['last_name']) ?>
+                            </p>
+                        <?php endif; ?>
+                    </div>
+                    <a href="/events/<?= $event['id'] ?>" class="btn btn-primary" style="width: 100%; text-align: center; padding: 0.85rem 1.5rem; border-radius: 10px; background: linear-gradient(135deg, #2D5016 0%, #1e3a0f 100%); color: white; text-decoration: none; font-weight: 600; font-size: 0.95rem; box-shadow: 0 3px 10px rgba(45, 80, 22, 0.25); transition: all 0.3s ease;">
+                        View Event Details
+                    </a>
+                </div>
+            <?php endforeach; ?>
+        </div>
+        
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="/events" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; border-radius: 50px; background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%); color: white; text-decoration: none; font-weight: 600; font-size: 1rem; box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);">
+                <span>View All Events</span>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Divider Line -->
+<div style="border-top: 1px solid var(--border-color); margin: 0;"></div>
+<?php endif; ?>
+
+<!-- How It Works Section -->
+<section style="margin: 0; padding: 6rem 0; position: relative; overflow: hidden; background-image: url('/images/community-workshop.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <!-- Overlay for readability -->
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.85); pointer-events: none; z-index: 0;"></div>
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 1;">
+        <h2 style="text-align: center; font-size: 2.5rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 1rem; font-family: 'Georgia', serif; line-height: 1.3;">
+            How Hosting Works
+        </h2>
+        <p style="text-align: center; font-size: 1.1rem; color: var(--text-medium); margin-bottom: 4rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+            Simple steps to host your workshop or training at The Barn.
+        </p>
+        
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; position: relative;">
+            <!-- Step 1 -->
+            <div style="text-align: center; position: relative;">
+                <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #2D5016 0%, #1e3a0f 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; box-shadow: 0 4px 15px rgba(45, 80, 22, 0.3); font-size: 2rem; font-weight: 700; color: white;">
+                    1
+                </div>
+                <h3 style="font-size: 1.5rem; font-weight: 700; color: #2C1810; margin-bottom: 1rem; font-family: 'Inter', sans-serif;">
+                    Choose your date and time
+                </h3>
+                <p style="color: var(--text-medium); line-height: 1.6;">
+                    Select the perfect date and time slot for your workshop. We offer flexible hourly rentals.
+                </p>
+            </div>
+            
+            <!-- Step 2 -->
+            <div style="text-align: center; position: relative;">
+                <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3); font-size: 2rem; font-weight: 700; color: white;">
+                    2
+                </div>
+                <h3 style="font-size: 1.5rem; font-weight: 700; color: #2C1810; margin-bottom: 1rem; font-family: 'Inter', sans-serif;">
+                    Book the space by the hour
+                </h3>
+                <p style="color: var(--text-medium); line-height: 1.6;">
+                    Reserve the space for your event. Our hourly booking system makes it easy and affordable.
+                </p>
+            </div>
+            
+            <!-- Step 3 -->
+            <div style="text-align: center; position: relative;">
+                <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #F5E6D3 0%, #E8D5C4 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; box-shadow: 0 4px 15px rgba(139, 90, 60, 0.2); font-size: 2rem; font-weight: 700; color: #2C1810;">
+                    3
+                </div>
+                <h3 style="font-size: 1.5rem; font-weight: 700; color: #2C1810; margin-bottom: 1rem; font-family: 'Inter', sans-serif;">
+                    We help promote your event
+                </h3>
+                <p style="color: var(--text-medium); line-height: 1.6;">
+                    Once approved, we'll help promote your event to our community and partners.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Divider Line -->
+<div style="border-top: 1px solid var(--border-color); margin: 0;"></div>
+
+<!-- Communities & Partners Section - Exact Match -->
+<section style="margin: 0; padding: 5rem 0; position: relative; overflow: hidden; background-image: url('/images/community-workshop.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <!-- Overlay for readability -->
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.85); pointer-events: none; z-index: 0;"></div>
+    <div class="container" style="max-width: 1400px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 1;">
         <h2 style="text-align: center; font-size: 2.2rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 3rem; font-family: 'Georgia', serif; line-height: 1.3;">
             Communities & Partners at The Barn
         </h2>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title ?? 'The Barn Coworking' ?></title>
+    <meta name="description" content="<?= $metaDescription ?? 'A flexible event space for workshops, trainings, clubs, and coaches. Rent by the hour in Soukra.' ?>">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         

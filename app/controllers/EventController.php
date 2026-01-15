@@ -17,9 +17,17 @@ class EventController extends BaseController {
         if ($selectedInterest) {
             $events = $this->eventModel->getEventsByInterest($selectedInterest);
         }
+        
+        // Get interests for each event
+        $eventsWithInterests = [];
+        foreach ($events as $event) {
+            $eventInterests = $this->eventModel->getEventInterests($event['id']);
+            $event['interests'] = array_column($eventInterests, 'id');
+            $eventsWithInterests[] = $event;
+        }
 
         $this->view('events/index', [
-            'events' => $events,
+            'events' => $eventsWithInterests,
             'interests' => $interests,
             'selectedInterest' => $selectedInterest
         ]);

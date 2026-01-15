@@ -15,8 +15,9 @@
             </div>
             <div class="footer-section">
                 <h3>Contact</h3>
-                <p>Email: info@thebarn.com</p>
-                <p>Join our community today!</p>
+                <p>Rue de l'or soukra ariena</p>
+                <p><a href="tel:54451627" style="color: inherit; text-decoration: none;">54451627</a></p>
+                <p><a href="mailto:contact@thebarncoworkingspace.com" style="color: var(--accent-beige); text-decoration: none;">contact@thebarncoworkingspace.com</a></p>
             </div>
         </div>
         <div class="text-center" style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #444;">
