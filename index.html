@@ -466,7 +466,9 @@
             transform: scale(1.05);
         }
 
-        /* Responsive */
+        /* Responsive - Mobile First */
+        
+        /* Tablet and below (≤ 968px) */
         @media (max-width: 968px) {
             nav {
                 padding: 1rem 2rem;
@@ -483,9 +485,24 @@
             .logo-text {
                 font-size: 1.3rem;
             }
+
+            .container {
+                padding: 0 30px;
+            }
         }
 
+        /* Mobile (≤ 768px) */
         @media (max-width: 768px) {
+            /* Base responsive adjustments */
+            html {
+                font-size: 16px;
+            }
+
+            body {
+                overflow-x: hidden;
+            }
+
+            /* Navigation */
             nav {
                 flex-direction: column;
                 gap: 1.2rem;
@@ -520,37 +537,145 @@
                 margin-top: 1rem;
             }
 
+            /* Hero section */
             .hero-section {
                 min-height: 70vh !important;
-                padding: 3rem 20px !important;
             }
 
             .hero-section h1 {
-                font-size: 2.5rem !important;
+                font-size: clamp(1.75rem, 5vw, 2.5rem) !important;
+                line-height: 1.3 !important;
+                margin-bottom: 1rem !important;
+            }
+
+            /* Container padding */
+            .container {
+                padding: 0 20px !important;
+            }
+
+            /* Prevent horizontal scroll */
+            * {
+                max-width: 100%;
+            }
+
+            /* Section padding */
+            section {
+                padding: 3rem 0 !important;
+            }
+
+            /* Background attachment fix for mobile */
+            section[style*="background-attachment: fixed"] {
+                background-attachment: scroll !important;
+            }
+
+            /* Typography responsive */
+            h2 {
+                font-size: clamp(1.75rem, 4vw, 2.5rem) !important;
+                line-height: 1.3 !important;
+            }
+
+            h3 {
+                font-size: clamp(1.25rem, 3vw, 1.5rem) !important;
+            }
+
+            p {
+                font-size: clamp(0.9rem, 2vw, 1rem) !important;
+                line-height: 1.6 !important;
+            }
+
+            /* Buttons */
+            .btn {
+                width: 100%;
+                max-width: 100%;
+                padding: 1rem 1.5rem !important;
+                font-size: 1rem !important;
+                text-align: center;
+                display: block;
+                margin: 0 auto;
+            }
+
+            /* Images responsive */
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            /* Footer */
+            .footer-copyright {
+                padding-left: 20px !important;
+                padding-right: 20px !important;
             }
         }
 
-        /* Responsive: Stack 3-card grid on mobile */
-        @media (max-width: 968px) {
+        /* Small mobile (≤ 480px) */
+        @media (max-width: 480px) {
+            nav {
+                padding: 0.75rem 1rem;
+            }
+
+            .hero-section h1 {
+                font-size: clamp(1.5rem, 6vw, 2rem) !important;
+            }
+
+            section {
+                padding: 2.5rem 0 !important;
+            }
+
+            .btn {
+                padding: 0.9rem 1.25rem !important;
+                font-size: 0.95rem !important;
+            }
+        }
+
+        /* Responsive: Stack grids on mobile and tablet */
+        
+        /* Tablet (768px - 968px) */
+        @media (max-width: 968px) and (min-width: 769px) {
+            /* 3-column grids become 2-column on tablet */
+            #espace div[style*="grid-template-columns: repeat(3"] {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 1.5rem !important;
+            }
+            
+            #next-steps div[style*="grid-template-columns: repeat(3"] {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 2rem !important;
+            }
+        }
+
+        /* Mobile (≤ 768px) */
+        @media (max-width: 768px) {
+            /* All grids stack to single column */
             #espace div[style*="grid-template-columns: repeat(3"] {
                 grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
             }
             
-            /* Qualification section: stack 2-column grid on mobile */
-            #qualification div[style*="grid-template-columns: repeat(2"] {
-                grid-template-columns: 1fr !important;
-            }
-            
-            /* Next steps section: stack 3-column grid on mobile */
-            #next-steps div[style*="grid-template-columns: repeat(3"] {
-                grid-template-columns: 1fr !important;
-            }
-        }
-
-        @media (max-width: 768px) {
             #qualification div[style*="grid-template-columns: repeat(2"] {
                 grid-template-columns: 1fr !important;
                 gap: 1.5rem !important;
+            }
+            
+            #next-steps div[style*="grid-template-columns: repeat(3"] {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+            }
+
+            /* Amenities grid */
+            #amenities div[style*="grid-template-columns: repeat(auto-fit"] {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+            }
+
+            /* Card padding reduction on mobile */
+            .service-card {
+                padding: 1.75rem !important;
+            }
+
+            /* Card image height adjustment */
+            .service-card img {
+                height: auto !important;
+                min-height: 180px;
             }
         }
 
@@ -596,21 +721,21 @@
             <!-- Background Image -->
             <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
                 <img src="images/hero-workspace.jpg" alt="Salle de formation à Soukra Ariana" 
-                     style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6);">
+                     style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6); max-width: 100%;">
                 <!-- Overlay for better text readability -->
                 <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.2) 100%);"></div>
             </div>
             
             <!-- Content Overlay -->
-            <div style="position: relative; z-index: 2; max-width: 1400px; margin: 0 auto; padding: 6rem 40px; min-height: 85vh; display: flex; flex-direction: column; justify-content: center;">
+            <div style="position: relative; z-index: 2; max-width: 1400px; margin: 0 auto; padding: clamp(3rem, 8vw, 6rem) clamp(20px, 5vw, 40px); min-height: 85vh; display: flex; flex-direction: column; justify-content: center;">
                 <div style="max-width: 700px;">
                     <!-- SIMPLIFIED: Hero headline - core positioning message only -->
-                    <h1 style="font-size: 3.5rem; font-weight: 800; color: white; margin-bottom: 1.5rem; line-height: 1.2; font-family: 'Georgia', serif; letter-spacing: -1px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+                    <h1 style="font-size: clamp(1.75rem, 5vw, 3.5rem); font-weight: 800; color: white; margin-bottom: 1.5rem; line-height: 1.2; font-family: 'Georgia', serif; letter-spacing: -1px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
                         Salle de formation professionnelle à Soukra – Ariana
                     </h1>
                     
                     <!-- SIMPLIFIED: Short descriptive text - removed detailed metrics, amenities, and technical specs -->
-                    <div style="font-size: 1.25rem; color: rgba(255,255,255,0.95); margin-bottom: 2.5rem; line-height: 1.7; font-weight: 400; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">
+                    <div style="font-size: clamp(1rem, 2.5vw, 1.25rem); color: rgba(255,255,255,0.95); margin-bottom: 2.5rem; line-height: 1.7; font-weight: 400; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">
                         <p style="margin-bottom: 0.75rem;">
                             <strong style="color: white;">Programmes récurrents, jours fixes.</strong> Une base stable pour votre organisation.
                         </p>
@@ -621,7 +746,7 @@
                     
                     <!-- PRIMARY CTA: "Discuter de votre programme de formation" -->
                     <div>
-                        <a href="#contact" class="btn btn-secondary" style="padding: 1.125rem 2.5rem; font-size: 1.0625rem; font-weight: 600; box-shadow: 0 4px 12px rgba(0,0,0,0.3); display: inline-block;">
+                        <a href="#contact" class="btn btn-secondary" style="padding: clamp(1rem, 3vw, 1.125rem) clamp(1.5rem, 4vw, 2.5rem); font-size: clamp(0.95rem, 2vw, 1.0625rem); font-weight: 600; box-shadow: 0 4px 12px rgba(0,0,0,0.3); display: inline-block; width: 100%; max-width: 100%; text-align: center;">
                             Discuter de votre programme de formation
                         </a>
                     </div>
@@ -634,13 +759,13 @@
 
         <!-- REPLACED: Section refocused on training base for organizations - All event/workshop/community language removed -->
         <!-- MESSAGING: We host training organizations on a recurring basis. We do not sell events. We do not run programs. -->
-        <section id="espace" style="margin: 0; padding: 6rem 0; position: relative; overflow: hidden; background-image: url('images/community-workshop.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+        <section id="espace" style="margin: 0; padding: clamp(3rem, 8vw, 6rem) 0; position: relative; overflow: hidden; background-image: url('images/community-workshop.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
             <!-- White overlay for lighter look -->
             <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.75); pointer-events: none; z-index: 0;"></div>
-            <div class="container" style="max-width: 1400px; margin: 0 auto; padding: 0 60px; position: relative; z-index: 1;">
+            <div class="container" style="max-width: 1400px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 60px); position: relative; z-index: 1;">
                 <div style="text-align: center; margin-bottom: 4rem;">
                     <!-- REPLACED: New title focused on professional training space -->
-                    <h2 style="font-size: 2.75rem; font-weight: 700; color: #2C1810; margin-bottom: 1.25rem; font-family: 'Georgia', serif; line-height: 1.2; letter-spacing: -0.3px;">
+                    <h2 style="font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 700; color: #2C1810; margin-bottom: 1.25rem; font-family: 'Georgia', serif; line-height: 1.2; letter-spacing: -0.3px;">
                         Location de salle de formation à Ariana
                     </h2>
                     <!-- SEO: Local SEO text block 1 -->
@@ -658,7 +783,7 @@
                     <div style="display: flex; flex-direction: column; background: linear-gradient(180deg, #FFFFFF 0%, #FDFCFA 100%); border-radius: 20px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04); border: 1px solid rgba(139, 90, 60, 0.1); position: relative; overflow: hidden; height: 100%;" class="service-card">
                         <!-- Image at top -->
                         <div style="border-radius: 16px; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,0.12); margin-bottom: 2rem; height: 220px; position: relative;">
-                            <img src="images/Attend.png" alt="Salle à louer pour formation à Ariana" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                            <img src="images/Attend.png" alt="Salle à louer pour formation à Ariana" style="width: 100%; height: 100%; object-fit: cover; display: block; max-width: 100%;">
                         </div>
                         <h3 style="font-size: 1.5rem; font-weight: 700; color: #2C1810; margin-bottom: 1rem; font-family: 'Inter', sans-serif; line-height: 1.25;">
                             Programmes récurrents
@@ -673,7 +798,7 @@
                     <div style="display: flex; flex-direction: column; background: linear-gradient(180deg, #FFFFFF 0%, #FDFCFA 100%); border-radius: 20px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04); border: 1px solid rgba(139, 90, 60, 0.1); position: relative; overflow: hidden; height: 100%;" class="service-card">
                         <!-- Image at top -->
                         <div style="border-radius: 16px; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,0.12); margin-bottom: 2rem; height: 220px; position: relative;">
-                            <img src="images/host.png" alt="Espace de coworking professionnel à Soukra" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                            <img src="images/host.png" alt="Espace de coworking professionnel à Soukra" style="width: 100%; height: 100%; object-fit: cover; display: block; max-width: 100%;">
                         </div>
                         <h3 style="font-size: 1.5rem; font-weight: 700; color: #2C1810; margin-bottom: 1rem; font-family: 'Inter', sans-serif; line-height: 1.25;">
                             Base de formation stable
@@ -688,7 +813,7 @@
                     <div style="display: flex; flex-direction: column; background: linear-gradient(180deg, #FFFFFF 0%, #FDFCFA 100%); border-radius: 20px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04); border: 1px solid rgba(139, 90, 60, 0.1); position: relative; overflow: hidden; height: 100%;" class="service-card">
                         <!-- Image at top -->
                         <div style="border-radius: 16px; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,0.12); margin-bottom: 2rem; height: 220px; position: relative;">
-                            <img src="images/join.png" alt="Location de salle de formation à Soukra" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                            <img src="images/join.png" alt="Location de salle de formation à Soukra" style="width: 100%; height: 100%; object-fit: cover; display: block; max-width: 100%;">
                         </div>
                         <h3 style="font-size: 1.5rem; font-weight: 700; color: #2C1810; margin-bottom: 1rem; font-family: 'Inter', sans-serif; line-height: 1.25;">
                             Partenariat à long terme
@@ -702,7 +827,7 @@
                 
                 <!-- PRIMARY CTA: "Discuter de votre programme de formation" -->
                 <div style="text-align: center;">
-                    <a href="#contact" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.9rem 2rem; border-radius: 10px; background: #FF6B35; color: white; text-decoration: none; font-weight: 600; font-size: 0.95rem; box-shadow: 0 3px 10px rgba(255, 107, 53, 0.3);">
+                    <a href="#contact" class="btn btn-secondary" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: clamp(0.9rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem); border-radius: 10px; background: #FF6B35; color: white; text-decoration: none; font-weight: 600; font-size: clamp(0.9rem, 2vw, 0.95rem); box-shadow: 0 3px 10px rgba(255, 107, 53, 0.3); width: 100%; max-width: 100%;">
                         <span>Discuter de votre programme de formation</span>
                         <span style="font-size: 1rem;">→</span>
                     </a>
@@ -714,12 +839,12 @@
         <div style="border-top: 1px solid var(--border-color); margin: 0;"></div>
 
         <!-- IMPROVED: Qualification Section - "Ce lieu est fait pour vous si" - Clean 2x2 card grid -->
-        <section id="qualification" style="margin: 0; padding: 6rem 0; position: relative; overflow: hidden; background-image: url('images/community-workshop.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+        <section id="qualification" style="margin: 0; padding: clamp(3rem, 8vw, 6rem) 0; position: relative; overflow: hidden; background-image: url('images/community-workshop.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
             <!-- White overlay for readability -->
             <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.75); pointer-events: none; z-index: 0;"></div>
-            <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 1;">
+            <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 40px); position: relative; z-index: 1;">
                 <div style="text-align: center; margin-bottom: 4rem;">
-                    <h2 style="font-size: 2.5rem; font-weight: 700; color: #2C1810; margin-bottom: 1rem; font-family: 'Georgia', serif; line-height: 1.3;">
+                    <h2 style="font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 700; color: #2C1810; margin-bottom: 1rem; font-family: 'Georgia', serif; line-height: 1.3;">
                         Ce lieu est fait pour vous si
                     </h2>
                 </div>
@@ -772,12 +897,12 @@
         <div style="border-top: 1px solid var(--border-color); margin: 0;"></div>
 
         <!-- Amenities & Features Section - CONVERTED: PHP variable removed -->
-        <section id="amenities" style="margin: 0; padding: 6rem 0; position: relative; overflow: hidden; background-image: url('images/community-workshop.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+        <section id="amenities" style="margin: 0; padding: clamp(3rem, 8vw, 6rem) 0; position: relative; overflow: hidden; background-image: url('images/community-workshop.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
             <!-- White overlay for readability -->
             <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.75); pointer-events: none; z-index: 0;"></div>
-            <div class="container" style="max-width: 1400px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 1;">
+            <div class="container" style="max-width: 1400px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 40px); position: relative; z-index: 1;">
                 <div style="text-align: center; margin-bottom: 4rem;">
-                    <h2 style="font-size: 2.5rem; font-weight: 700; color: #2C1810; margin-bottom: 1rem; font-family: 'Georgia', serif; line-height: 1.3;">
+                    <h2 style="font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 700; color: #2C1810; margin-bottom: 1rem; font-family: 'Georgia', serif; line-height: 1.3;">
                         Salle à louer pour formation et réunions à Soukra
                     </h2>
                     <!-- SEO: Local SEO text block 2 -->
@@ -874,10 +999,10 @@
         <div style="border-top: 1px solid var(--border-color); margin: 0;"></div>
 
         <!-- NEW: "What happens next" Reassurance Block -->
-        <section id="next-steps" style="margin: 0; padding: 5rem 0; background: #FDF8F3;">
+        <section id="next-steps" style="margin: 0; padding: clamp(3rem, 6vw, 5rem) 0; background: #FDF8F3;">
             <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 40px;">
                 <div style="text-align: center; margin-bottom: 3rem;">
-                    <h2 style="font-size: 2.5rem; font-weight: 700; color: #2C1810; margin-bottom: 1rem; font-family: 'Georgia', serif; line-height: 1.3;">
+                    <h2 style="font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 700; color: #2C1810; margin-bottom: 1rem; font-family: 'Georgia', serif; line-height: 1.3;">
                         Espace professionnel et coworking à Ariana
                     </h2>
                     <!-- SEO: Local SEO text block 3 -->
@@ -936,10 +1061,10 @@
         <div style="border-top: 1px solid var(--border-color); margin: 0;"></div>
 
         <!-- Communities & Partners Section - MERGED: From home.php, converted to static HTML, Events removed -->
-        <section id="partners" style="margin: 0; padding: 5rem 0; position: relative; overflow: hidden; background-image: url('images/community-workshop.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+        <section id="partners" style="margin: 0; padding: clamp(3rem, 6vw, 5rem) 0; position: relative; overflow: hidden; background-image: url('images/community-workshop.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
             <!-- Overlay for readability -->
             <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.85); pointer-events: none; z-index: 0;"></div>
-            <div class="container" style="max-width: 1400px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 1;">
+            <div class="container" style="max-width: 1400px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 40px); position: relative; z-index: 1;">
                 <!-- Final CTA Block -->
                 <div style="text-align: center; padding: 3rem; background: linear-gradient(135deg, #2D5016 0%, #1e3a0f 100%); border-radius: 24px; box-shadow: 0 8px 32px rgba(45, 80, 22, 0.3); margin-bottom: 3rem;">
                     <h3 style="font-size: 2rem; font-weight: 700; color: white; margin-bottom: 1rem; font-family: 'Georgia', serif;">
@@ -948,7 +1073,7 @@
                     <p style="font-size: 1.15rem; color: rgba(255, 255, 255, 0.9); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6;">
                         Partenariat à long terme avec The Barn pour programmes de formation récurrents. Jours fixes, même configuration, environnement professionnel. Une base stable pour votre organisation.
                     </p>
-                    <a href="#contact" class="btn" style="display: inline-flex; align-items: center; gap: 0.75rem; padding: 1rem 2.5rem; border-radius: 50px; background: white; color: #2D5016; text-decoration: none; font-weight: 600; font-size: 1rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); transition: all 0.3s ease;">
+                    <a href="#contact" class="btn" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem; padding: clamp(1rem, 2.5vw, 1.125rem) clamp(1.5rem, 4vw, 2.5rem); border-radius: 50px; background: white; color: #2D5016; text-decoration: none; font-weight: 600; font-size: clamp(0.95rem, 2vw, 1rem); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); transition: all 0.3s ease; width: 100%; max-width: 100%;">
                         <span>Discuter de votre programme de formation</span>
                         <span style="font-size: 1.2rem;">→</span>
                     </a>
