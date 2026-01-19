@@ -2,24 +2,10 @@
 /**
  * Simple Static Router for Marketing Site
  * 
- * SIMPLIFIED VERSION - This replaces the MVC router with a simple static page router.
+ * This replaces the MVC router with a simple static page router.
+ * No database, no authentication, no sessions - just static pages.
  * 
- * REMOVED:
- * - All MVC routing (Router class, controllers, models)
- * - Database connections and queries
- * - Session management and authentication
- * - User registration/login functionality
- * - Event booking/registration logic
- * - Admin dashboard functionality
- * 
- * KEPT:
- * - Static HTML/CSS/JS
- * - Header/footer includes
- * - Reusable layout components
- * - Simple PHP template variables
- * 
- * This site now behaves like a static marketing website.
- * PHP is used only as a template engine for includes and simple variables.
+ * REMOVED: All MVC routing, controllers, models, database connections
  */
 
 // Set error reporting (disable in production)
@@ -41,7 +27,7 @@ if (empty($requestPath)) {
     $requestPath = 'home';
 }
 
-// Map routes to view files (simple static routing)
+// Map routes to view files
 $routes = [
     '' => 'home',
     'home' => 'home',
@@ -66,3 +52,4 @@ if (!file_exists($viewPath)) {
 
 // Include the view (views handle their own layout includes)
 require_once $viewPath;
+

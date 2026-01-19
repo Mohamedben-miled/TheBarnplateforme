@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- TRANSLATED: Language changed to French -->
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title ?? 'The Barn Coworking' ?></title>
-    <meta name="description" content="<?= $metaDescription ?? 'A flexible event space for workshops, trainings, clubs, and coaches. Rent by the hour in Soukra.' ?>">
+    <!-- REFACTORED: Default meta description using real content from thebarncoworkingspace.com, repositioned for training organizations -->
+    <meta name="description" content="<?= $metaDescription ?? 'Espace écologique de 288m² à Ariana avec Wi-Fi 5G 160 Mbps, 100+ plantes, salles de réunion et équipements premium. Lieu de formation permanent pour cabinets de formation, associations et clubs. Programmes récurrents, jours fixes, partenariats à long terme.' ?>">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         
@@ -1031,7 +1033,7 @@
     <?php include __DIR__ . '/../partials/header.php'; ?>
     
     <main>
-        <?php include __DIR__ . '/../partials/flash.php'; ?>
+        <!-- REMOVED: Flash messages (session-based) - This is a static marketing site -->
         <?= $content ?>
     </main>
 

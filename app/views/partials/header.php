@@ -1,29 +1,25 @@
+<?php
+// Static header - No authentication/session logic
+// REMOVED: All user authentication, session checks, and dynamic user menus
+// This is now a static marketing site
+?>
 <header>
     <nav>
         <a href="/" class="logo">
             <div class="logo-icon"></div>
             <span class="logo-text">TheBarn</span>
         </a>
+        <!-- REFACTORED: Navigation updated for training organizations focus -->
+        <!-- REMOVED: "Partenaires" link - No partner organizations to display currently -->
         <ul class="nav-links">
-            <li><a href="/events">Events</a></li>
-            <li><a href="/register">Host a Workshop</a></li>
-            <li><a href="/partners">Partners</a></li>
-            <li><a href="/events">Calendar</a></li>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="#amenities">Équipements</a></li>
+            <li><a href="/events">Événements</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="nav-buttons">
-            <?php if (isset($_SESSION['user_id'])): ?>
-                <?php if ($_SESSION['role'] === 'organizer' || $_SESSION['role'] === 'admin'): ?>
-                    <a href="/events/organizer" style="color: white; text-decoration: none; margin-right: 1rem;">My Events</a>
-                <?php endif; ?>
-                <?php if ($_SESSION['role'] === 'admin'): ?>
-                    <a href="/admin/dashboard" style="color: white; text-decoration: none; margin-right: 1rem;">Admin</a>
-                <?php endif; ?>
-                <a href="/dashboard" style="color: white; text-decoration: none; margin-right: 1rem;">Dashboard</a>
-                <a href="/logout" class="btn btn-login">Logout</a>
-            <?php else: ?>
-                <a href="/login" class="btn btn-login">Login</a>
-                <a href="/register" class="btn btn-signup">Sign up</a>
-            <?php endif; ?>
+            <!-- REMOVED: Login/Register buttons - This is a static marketing site -->
+            <!-- Contact information is in the footer -->
         </div>
     </nav>
 </header>
