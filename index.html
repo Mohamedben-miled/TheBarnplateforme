@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<!-- CONVERTED: Pure static HTML site - No PHP required -->
+<!-- All PHP includes and logic removed, converted to single-page HTML -->
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Barn – Lieu de formation permanent à Soukra | 288m², Wi-Fi 5G, Salles de réunion</title>
+    <meta name="description" content="Espace écologique de 288m² à Ariana avec Wi-Fi 5G 160 Mbps, 100+ plantes, salles de réunion et équipements premium. Lieu de formation permanent pour cabinets de formation, associations et clubs. Programmes récurrents, jours fixes, partenariats à long terme.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Warm, Earthy Color Palette - Inspired Design */
+            --primary-color: #8B4513;
+            --primary-dark: #654321;
+            --primary-light: #A0522D;
+            --secondary-color: #2D5016;
+            --accent-orange: #FF6B35;
+            --accent-green: #2D5016;
+            --accent-beige: #F5E6D3;
+            --text-dark: #3E2723;
+            --text-medium: #5D4037;
+            --text-light: #8D6E63;
+            --bg-light: #FDF8F3;
+            --bg-white: #FFFFFF;
+            --bg-cream: #FFF8F0;
+            --border-color: #E8D5C4;
+            --success-color: #2D5016;
+            --error-color: #C62828;
+            --warning-color: #FF6B35;
+            --gradient-primary: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+            --gradient-secondary: linear-gradient(135deg, #2D5016 0%, #1B5E20 100%);
+            --gradient-accent: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
+            --shadow-sm: 0 2px 8px rgba(139, 69, 19, 0.1);
+            --shadow-md: 0 4px 16px rgba(139, 69, 19, 0.15);
+            --shadow-lg: 0 8px 32px rgba(139, 69, 19, 0.2);
+            --shadow-xl: 0 12px 48px rgba(139, 69, 19, 0.25);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            overflow-x: hidden;
+        }
+
+        /* Serif font for logo */
+        .logo {
+            font-family: 'Georgia', 'Times New Roman', serif;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Modern animated background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(139, 69, 19, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(160, 82, 45, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(245, 230, 211, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+            animation: backgroundShift 20s ease-in-out infinite;
+        }
+
+        @keyframes backgroundShift {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.1); }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+        }
+
+        /* Header & Navigation - CONVERTED: Updated for anchor navigation */
+        header {
+            background: transparent;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            padding: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 3rem;
+            position: relative;
+            max-width: 1600px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            border: 2px solid white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            position: relative;
+        }
+
+        .logo-icon::before {
+            content: '🌿';
+            font-size: 1.4rem;
+            line-height: 1;
+        }
+
+        .logo-text {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
+        }
+
+        .logo:hover .logo-icon {
+            border-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .nav-links li {
+            margin: 0;
+            position: relative;
+        }
+
+        .nav-links > li > a:not(.btn) {
+            color: white;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+            display: block;
+            letter-spacing: 0.2px;
+        }
+
+        .nav-links > li > a:not(.btn):hover {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-left: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-secondary {
+            background: var(--accent-orange);
+            color: white;
+            font-weight: 600;
+        }
+
+        .btn-secondary:hover {
+            background: #FF8C42;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-beige {
+            background: var(--accent-beige);
+            color: var(--text-dark);
+            font-weight: 500;
+            border: 1px solid var(--border-color);
+            text-align: left;
+        }
+
+        .btn-beige:hover {
+            background: #E8D5C4;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Main Content */
+        main {
+            min-height: calc(100vh - 200px);
+            padding: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero Section Animation */
+        .hero-section {
+            animation: fadeInUp 0.8s ease-out;
+            background: var(--bg-light);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #111827 0%, #1F2937 100%);
+            color: white;
+            padding: 3rem 0 2rem;
+            margin-top: 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--accent-beige);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-beige);
+            transform: translateX(5px);
+        }
+
+        .footer-section p {
+            line-height: 1.8;
+        }
+
+        /* Service Cards Enhanced Styling */
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12), 0 16px 64px rgba(0,0,0,0.06) !important;
+        }
+
+        .service-card img {
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            nav {
+                padding: 1rem 2rem;
+            }
+
+            .nav-links {
+                gap: 2rem;
+            }
+
+            .nav-links > li > a:not(.btn) {
+                font-size: 0.9rem;
+            }
+
+            .logo-text {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1.2rem;
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                width: 100%;
+                gap: 1.5rem;
+            }
+
+            .nav-links > li > a:not(.btn) {
+                font-size: 0.85rem;
+            }
+
+            .logo-icon {
+                width: 36px;
+                height: 36px;
+            }
+
+            .logo-text {
+                font-size: 1.2rem;
+            }
+
+            .nav-buttons {
+                margin-left: 0;
+                width: 100%;
+                justify-content: center;
+                margin-top: 1rem;
+            }
+
+            .hero-section {
+                min-height: 70vh !important;
+                padding: 3rem 20px !important;
+            }
+
+            .hero-section h1 {
+                font-size: 2.5rem !important;
+            }
+        }
+
+        /* Responsive: Stack 3-card grid on mobile */
+        @media (max-width: 968px) {
+            #espace div[style*="grid-template-columns: repeat(3"] {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        /* Smooth page transitions */
+        main > * {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .text-center {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- CONVERTED: Header inlined - No PHP include -->
+    <header>
+        <nav>
+            <a href="#hero" class="logo">
+                <div class="logo-icon"></div>
+                <span class="logo-text">TheBarn</span>
+            </a>
+            <!-- CONVERTED: Navigation updated for anchor links, Events page removed -->
+            <ul class="nav-links">
+                <li><a href="#hero">Accueil</a></li>
+                <li><a href="#amenities">Équipements</a></li>
+                <li><a href="#who-for">Pour qui</a></li>
+                <li><a href="#how-it-works">Comment ça fonctionne</a></li>
+                <li><a href="#partners">Partenaires</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <!-- REMOVED: Login/Register buttons - This is a static marketing site -->
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <!-- Hero Section - CONVERTED: PHP variables removed, hardcoded paths -->
+        <section id="hero" class="hero-section" style="min-height: 100vh; position: relative; margin: 0; padding: 0; overflow: hidden;">
+            <!-- Background Image -->
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
+                <img src="images/hero-workspace.jpg" alt="Espace de formation The Barn" 
+                     style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6);">
+                <!-- Overlay for better text readability -->
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.2) 100%);"></div>
+            </div>
+            
+            <!-- Content Overlay -->
+            <div style="position: relative; z-index: 2; max-width: 1400px; margin: 0 auto; padding: 6rem 40px; min-height: 85vh; display: flex; flex-direction: column; justify-content: center;">
+                <div style="max-width: 700px;">
+                    <!-- SIMPLIFIED: Hero headline - core positioning message only -->
+                    <h1 style="font-size: 3.5rem; font-weight: 800; color: white; margin-bottom: 1.5rem; line-height: 1.2; font-family: 'Georgia', serif; letter-spacing: -1px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+                        Lieu de formation permanent à Soukra — idéal pour associations, clubs et cabinets de formation
+                    </h1>
+                    
+                    <!-- SIMPLIFIED: Short descriptive text - removed detailed metrics, amenities, and technical specs -->
+                    <div style="font-size: 1.25rem; color: rgba(255,255,255,0.95); margin-bottom: 2.5rem; line-height: 1.7; font-weight: 400; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">
+                        <p style="margin-bottom: 0.75rem;">
+                            <strong style="color: white;">Programmes récurrents, jours fixes.</strong> Partenariats à long terme pour votre organisation.
+                        </p>
+                        <p style="margin-bottom: 0;">
+                            Pas une location ponctuelle—<strong style="color: white;">votre base de formation permanente</strong>.
+                        </p>
+                    </div>
+                    
+                    <!-- SIMPLIFIED: Single CTA - removed detailed bullets with metrics and amenities -->
+                    <div>
+                        <a href="#contact" class="btn btn-secondary" style="padding: 1.125rem 2.5rem; font-size: 1.0625rem; font-weight: 600; box-shadow: 0 4px 12px rgba(0,0,0,0.3); display: inline-block;">
+                            Planifier une visite pour votre organisation
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider Line -->
+        <div style="border-top: 1px solid var(--border-color); margin: 0;"></div>
+
+        <!-- REPLACED: Section refocused on training base for organizations - All event/workshop/community language removed -->
+        <!-- MESSAGING: We host training organizations on a recurring basis. We do not sell events. We do not run programs. -->
+        <section id="espace" style="margin: 0; padding: 6rem 0; position: relative; overflow: hidden; background-image: url('images/community-workshop.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+            <!-- White overlay for lighter look -->
+            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.75); pointer-events: none; z-index: 0;"></div>
+            <div class="container" style="max-width: 1400px; margin: 0 auto; padding: 0 60px; position: relative; z-index: 1;">
+                <div style="text-align: center; margin-bottom: 4rem;">
+                    <!-- REPLACED: New title focused on professional training space -->
+                    <h2 style="font-size: 2.75rem; font-weight: 700; color: #2C1810; margin-bottom: 1.25rem; font-family: 'Georgia', serif; line-height: 1.2; letter-spacing: -0.3px;">
+                        Espace de formation professionnel à Ariana
+                    </h2>
+                    <!-- REPLACED: New description - clear positioning as training base, no event language -->
+                    <p style="font-size: 1.15rem; color: #5D4037; line-height: 1.7; max-width: 800px; margin: 0 auto; font-weight: 400;">
+                        Un environnement professionnel conçu pour accueillir des programmes de formation récurrents.<br>
+                        Idéal pour les cabinets de formation, associations et clubs à la recherche d'une base stable sur des jours fixes.
+                    </p>
+                </div>
+                
+                <!-- REFACTORED: 3-card layout for better readability and structure -->
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 3rem;">
+                    <!-- Card 1: Programmes récurrents -->
+                    <div style="display: flex; flex-direction: column; background: linear-gradient(180deg, #FFFFFF 0%, #FDFCFA 100%); border-radius: 20px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04); border: 1px solid rgba(139, 90, 60, 0.1); position: relative; overflow: hidden; height: 100%;" class="service-card">
+                        <!-- Image at top -->
+                        <div style="border-radius: 16px; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,0.12); margin-bottom: 2rem; height: 220px; position: relative;">
+                            <img src="images/Attend.png" alt="Programmes récurrents" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                        </div>
+                        <h3 style="font-size: 1.5rem; font-weight: 700; color: #2C1810; margin-bottom: 1rem; font-family: 'Inter', sans-serif; line-height: 1.25;">
+                            Programmes récurrents
+                        </h3>
+                        <p style="color: #5D4037; line-height: 1.65; font-size: 1rem; font-weight: 400;">
+                            Formations organisées sur des jours fixes, chaque semaine ou chaque mois.<br>
+                            Une continuité essentielle pour structurer vos parcours de formation.
+                        </p>
+                    </div>
+                    
+                    <!-- Card 2: Base de formation stable -->
+                    <div style="display: flex; flex-direction: column; background: linear-gradient(180deg, #FFFFFF 0%, #FDFCFA 100%); border-radius: 20px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04); border: 1px solid rgba(139, 90, 60, 0.1); position: relative; overflow: hidden; height: 100%;" class="service-card">
+                        <!-- Image at top -->
+                        <div style="border-radius: 16px; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,0.12); margin-bottom: 2rem; height: 220px; position: relative;">
+                            <img src="images/host.png" alt="Base de formation stable" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                        </div>
+                        <h3 style="font-size: 1.5rem; font-weight: 700; color: #2C1810; margin-bottom: 1rem; font-family: 'Inter', sans-serif; line-height: 1.25;">
+                            Base de formation stable
+                        </h3>
+                        <p style="color: #5D4037; line-height: 1.65; font-size: 1rem; font-weight: 400;">
+                            Même configuration à chaque session.<br>
+                            Un environnement professionnel fiable, pensé pour les exigences des organisations.
+                        </p>
+                    </div>
+                    
+                    <!-- Card 3: Partenariat à long terme -->
+                    <div style="display: flex; flex-direction: column; background: linear-gradient(180deg, #FFFFFF 0%, #FDFCFA 100%); border-radius: 20px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04); border: 1px solid rgba(139, 90, 60, 0.1); position: relative; overflow: hidden; height: 100%;" class="service-card">
+                        <!-- Image at top -->
+                        <div style="border-radius: 16px; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,0.12); margin-bottom: 2rem; height: 220px; position: relative;">
+                            <img src="images/join.png" alt="Partenariat à long terme" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                        </div>
+                        <h3 style="font-size: 1.5rem; font-weight: 700; color: #2C1810; margin-bottom: 1rem; font-family: 'Inter', sans-serif; line-height: 1.25;">
+                            Partenariat à long terme
+                        </h3>
+                        <p style="color: #5D4037; line-height: 1.65; font-size: 1rem; font-weight: 400;">
+                            Un partenariat conçu pour les cabinets de formation, associations et clubs.<br>
+                            Pas une location ponctuelle — une base durable pour vos activités.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Main CTA below cards -->
+                <div style="text-align: center;">
+                    <a href="#contact" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.9rem 2rem; border-radius: 10px; background: #FF6B35; color: white; text-decoration: none; font-weight: 600; font-size: 0.95rem; box-shadow: 0 3px 10px rgba(255, 107, 53, 0.3);">
+                        <span>Contacter pour utilisation formation</span>
+                        <span style="font-size: 1rem;">→</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider Line -->
+        <div style="border-top: 1px solid var(--border-color); margin: 0;"></div>
+
+        <!-- Amenities & Features Section - CONVERTED: PHP variable removed -->
+        <section id="amenities" style="margin: 0; padding: 6rem 0; position: relative; overflow: hidden; background-image: url('images/community-workshop.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+            <!-- White overlay for readability -->
+            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.75); pointer-events: none; z-index: 0;"></div>
+            <div class="container" style="max-width: 1400px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 1;">
+                <div style="text-align: center; margin-bottom: 4rem;">
+                    <h2 style="font-size: 2.5rem; font-weight: 700; color: #2C1810; margin-bottom: 1rem; font-family: 'Georgia', serif; line-height: 1.3;">
+                        Équipements et avantages
+                    </h2>
+                    <p style="font-size: 1.15rem; color: #5D4037; line-height: 1.7; max-width: 800px; margin: 0 auto; font-weight: 400;">
+                        Un espace professionnel équipé pour vos programmes de formation récurrents.
+                    </p>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                    <!-- Wi-Fi -->
+                    <div style="padding: 2rem; background: #FDF8F3; border-radius: 16px; border: 1px solid rgba(139, 90, 60, 0.1); text-align: center;">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">📶</div>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #2C1810; margin-bottom: 0.75rem; font-family: 'Inter', sans-serif;">
+                            Wi-Fi haut débit (100 Mb/s)
+                        </h3>
+                        <p style="color: #5D4037; font-size: 0.95rem; line-height: 1.6;">
+                            Connexion haut débit fiable pour vos sessions de formation et présentations en ligne.
+                        </p>
+                    </div>
+                    
+                    <!-- Meeting Rooms -->
+                    <div style="padding: 2rem; background: #FDF8F3; border-radius: 16px; border: 1px solid rgba(139, 90, 60, 0.1); text-align: center;">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🏢</div>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #2C1810; margin-bottom: 0.75rem; font-family: 'Inter', sans-serif;">
+                            Salles de réunion
+                        </h3>
+                        <p style="color: #5D4037; font-size: 0.95rem; line-height: 1.6;">
+                            Espaces dédiés pour vos sessions de formation, réunions d'équipe et présentations.
+                        </p>
+                    </div>
+                    
+                    <!-- Space Capacity -->
+                    <div style="padding: 2rem; background: #FDF8F3; border-radius: 16px; border: 1px solid rgba(139, 90, 60, 0.1); text-align: center;">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">📐</div>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #2C1810; margin-bottom: 0.75rem; font-family: 'Inter', sans-serif;">
+                            Espace flexible
+                        </h3>
+                        <p style="color: #5D4037; font-size: 0.95rem; line-height: 1.6;">
+                            Espace flexible pouvant accueillir jusqu'à 50 participants pour vos programmes de formation.
+                        </p>
+                    </div>
+                    
+                    <!-- Presentation Equipment -->
+                    <div style="padding: 2rem; background: #FDF8F3; border-radius: 16px; border: 1px solid rgba(139, 90, 60, 0.1); text-align: center;">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">📺</div>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #2C1810; margin-bottom: 0.75rem; font-family: 'Inter', sans-serif;">
+                            Équipements de présentation
+                        </h3>
+                        <p style="color: #5D4037; font-size: 0.95rem; line-height: 1.6;">
+                            Écran, vidéoprojecteur, tableau disponibles selon vos besoins pour vos sessions de formation.
+                        </p>
+                    </div>
+                    
+                    <!-- Parking -->
+                    <div style="padding: 2rem; background: #FDF8F3; border-radius: 16px; border: 1px solid rgba(139, 90, 60, 0.1); text-align: center;">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🅿️</div>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #2C1810; margin-bottom: 0.75rem; font-family: 'Inter', sans-serif;">
+                            Parking gratuit
+                        </h3>
+                        <p style="color: #5D4037; font-size: 0.95rem; line-height: 1.6;">
+                            Accès facile pour vos participants avec parking gratuit disponible.
+                        </p>
+                    </div>
+                    
+                    <!-- Climate Control -->
+                    <div style="padding: 2rem; background: #FDF8F3; border-radius: 16px; border: 1px solid rgba(139, 90, 60, 0.1); text-align: center;">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🌡️</div>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #2C1810; margin-bottom: 0.75rem; font-family: 'Inter', sans-serif;">
+                            Climatisation
+                        </h3>
+                        <p style="color: #5D4037; font-size: 0.95rem; line-height: 1.6;">
+                            Contrôle climatique optimal pour le confort de vos participants toute l'année.
+                        </p>
+                    </div>
+                    
+                    <!-- Catering -->
+                    <div style="padding: 2rem; background: #FDF8F3; border-radius: 16px; border: 1px solid rgba(139, 90, 60, 0.1); text-align: center;">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">☕</div>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #2C1810; margin-bottom: 0.75rem; font-family: 'Inter', sans-serif;">
+                            Catering et restauration
+                        </h3>
+                        <p style="color: #5D4037; font-size: 0.95rem; line-height: 1.6;">
+                            Pauses café, restauration et services de catering peuvent être organisés sur demande pour vos formations.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider Line -->
+        <div style="border-top: 1px solid var(--border-color); margin: 0;"></div>
+
+        <!-- Who This Space Is For Section - MERGED: From home.php, converted to static HTML -->
+        <section id="who-for" style="margin: 0; padding: 6rem 0; background: white;">
+            <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 40px;">
+                <div style="text-align: center; margin-bottom: 4rem;">
+                    <h2 style="font-size: 2.5rem; font-weight: 700; color: #2C1810; margin-bottom: 1rem; font-family: 'Georgia', serif; line-height: 1.3;">
+                        Pour qui cet espace est conçu
+                    </h2>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem;">
+                    <!-- Training Organizations → Cabinets de formation -->
+                    <div style="text-align: center; padding: 2.5rem; background: #FDF8F3; border-radius: 20px; border: 1px solid rgba(139, 90, 60, 0.1);">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #2D5016 0%, #1e3a0f 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem;">
+                            🎯
+                        </div>
+                        <h3 style="font-size: 1.5rem; font-weight: 700; color: #2C1810; margin-bottom: 1rem; font-family: 'Inter', sans-serif;">
+                            Cabinets de formation
+                        </h3>
+                        <p style="color: #5D4037; line-height: 1.6; font-size: 1rem;">
+                            Établissez votre base de formation permanente avec des programmes récurrents sur jours fixes. Même configuration, environnement professionnel, stabilité à long terme.
+                        </p>
+                    </div>
+                    
+                    <!-- Associations & Clubs -->
+                    <div style="text-align: center; padding: 2.5rem; background: #FDF8F3; border-radius: 20px; border: 1px solid rgba(139, 90, 60, 0.1);">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem;">
+                            👥
+                        </div>
+                        <h3 style="font-size: 1.5rem; font-weight: 700; color: #2C1810; margin-bottom: 1rem; font-family: 'Inter', sans-serif;">
+                            Associations et clubs
+                        </h3>
+                        <p style="color: #5D4037; line-height: 1.6; font-size: 1rem;">
+                            Arrêtez de chercher des salles. Construisez un partenariat à long terme avec des jours récurrents fixes et une configuration fiable et professionnelle.
+                        </p>
+                    </div>
+                    
+                    <!-- Professional Partners → Organisations recherchant un partenariat -->
+                    <div style="text-align: center; padding: 2.5rem; background: #FDF8F3; border-radius: 20px; border: 1px solid rgba(139, 90, 60, 0.1);">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #F5E6D3 0%, #E8D5C4 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem;">
+                            🌱
+                        </div>
+                        <h3 style="font-size: 1.5rem; font-weight: 700; color: #2C1810; margin-bottom: 1rem; font-family: 'Inter', sans-serif;">
+                            Organisations recherchant un partenariat
+                        </h3>
+                        <p style="color: #5D4037; line-height: 1.6; font-size: 1rem;">
+                            Rejoignez une communauté de cabinets de formation. Pas de locations ponctuelles—construisez des partenariats durables et développez votre présence communautaire.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider Line -->
+        <div style="border-top: 1px solid var(--border-color); margin: 0;"></div>
+
+        <!-- How It Works Section - CONVERTED: PHP variable removed -->
+        <section id="how-it-works" style="margin: 0; padding: 6rem 0; position: relative; overflow: hidden; background-image: url('images/community-workshop.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+            <!-- Overlay for readability -->
+            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.85); pointer-events: none; z-index: 0;"></div>
+            <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 1;">
+                <h2 style="text-align: center; font-size: 2.5rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 1rem; font-family: 'Georgia', serif; line-height: 1.3;">
+                    Comment ça fonctionne
+                </h2>
+                <p style="text-align: center; font-size: 1.1rem; color: var(--text-medium); margin-bottom: 4rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Étapes simples pour établir votre base de formation à The Barn.
+                </p>
+                
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; position: relative;">
+                    <!-- Step 1 -->
+                    <div style="text-align: center; position: relative;">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #2D5016 0%, #1e3a0f 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; box-shadow: 0 4px 15px rgba(45, 80, 22, 0.3); font-size: 2rem; font-weight: 700; color: white;">
+                            1
+                        </div>
+                        <h3 style="font-size: 1.5rem; font-weight: 700; color: #2C1810; margin-bottom: 1rem; font-family: 'Inter', sans-serif;">
+                            Discuter de vos besoins de formation
+                        </h3>
+                        <p style="color: var(--text-medium); line-height: 1.6;">
+                            Contactez-nous pour discuter des programmes de formation de votre organisation. Nous explorerons comment The Barn peut servir de base de formation permanente.
+                        </p>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div style="text-align: center; position: relative;">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3); font-size: 2rem; font-weight: 700; color: white;">
+                            2
+                        </div>
+                        <h3 style="font-size: 1.5rem; font-weight: 700; color: #2C1810; margin-bottom: 1rem; font-family: 'Inter', sans-serif;">
+                            Établir votre programme récurrent
+                        </h3>
+                        <p style="color: var(--text-medium); line-height: 1.6;">
+                            Définissez vos jours fixes—hebdomadaires ou bi-hebdomadaires. Mêmes jours, même configuration, à chaque fois. Une base stable pour vos programmes de formation.
+                        </p>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div style="text-align: center; position: relative;">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #F5E6D3 0%, #E8D5C4 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; box-shadow: 0 4px 15px rgba(139, 90, 60, 0.2); font-size: 2rem; font-weight: 700; color: #2C1810;">
+                            3
+                        </div>
+                        <h3 style="font-size: 1.5rem; font-weight: 700; color: #2C1810; margin-bottom: 1rem; font-family: 'Inter', sans-serif;">
+                            Construire un partenariat à long terme
+                        </h3>
+                        <p style="color: var(--text-medium); line-height: 1.6;">
+                            Développez la présence de votre organisation dans notre communauté. Nous soutenons vos programmes et aidons à construire des partenariats durables.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider Line -->
+        <div style="border-top: 1px solid var(--border-color); margin: 0;"></div>
+
+        <!-- Communities & Partners Section - MERGED: From home.php, converted to static HTML, Events removed -->
+        <section id="partners" style="margin: 0; padding: 5rem 0; position: relative; overflow: hidden; background-image: url('images/community-workshop.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+            <!-- Overlay for readability -->
+            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.85); pointer-events: none; z-index: 0;"></div>
+            <div class="container" style="max-width: 1400px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 1;">
+                <h2 style="text-align: center; font-size: 2.2rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 3rem; font-family: 'Georgia', serif; line-height: 1.3;">
+                    Communautés et partenaires à The Barn
+                </h2>
+                
+                <!-- Partners Section - Static placeholder -->
+                <!-- REMOVED: Database-driven partners carousel. This is now a static marketing site. -->
+                <div style="text-align: center; padding: 3rem; background: linear-gradient(135deg, rgba(139, 69, 19, 0.05) 0%, rgba(160, 82, 45, 0.05) 100%); border-radius: 20px; margin-bottom: 4rem; border: 1px solid rgba(139, 69, 19, 0.1);">
+                    <p style="color: var(--text-medium); font-size: 1.1rem;">Rejoignez notre communauté grandissante de partenaires !</p>
+                </div>
+                
+                <!-- Become a Partner CTA -->
+                <div style="text-align: center; padding: 3rem; background: linear-gradient(135deg, #2D5016 0%, #1e3a0f 100%); border-radius: 24px; box-shadow: 0 8px 32px rgba(45, 80, 22, 0.3); margin-bottom: 3rem;">
+                    <h3 style="font-size: 2rem; font-weight: 700; color: white; margin-bottom: 1rem; font-family: 'Georgia', serif;">
+                        Prêt à établir votre base de formation permanente ?
+                    </h3>
+                    <p style="font-size: 1.15rem; color: rgba(255, 255, 255, 0.9); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+                        Partenariat avec The Barn pour programmes de formation récurrents. Jours fixes, même configuration, environnement professionnel. Une base stable pour votre organisation.
+                    </p>
+                    <a href="#contact" class="btn" style="display: inline-flex; align-items: center; gap: 0.75rem; padding: 1rem 2.5rem; border-radius: 50px; background: white; color: #2D5016; text-decoration: none; font-weight: 600; font-size: 1rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); transition: all 0.3s ease;">
+                        <span>Planifier une visite pour votre organisation</span>
+                        <span style="font-size: 1.2rem;">→</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider Line -->
+        <div style="border-top: 1px solid var(--border-color); margin: 0;"></div>
+
+        <!-- CONVERTED: Footer inlined - No PHP include -->
+        <footer id="contact">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>The Barn</h3>
+                        <p>Espace écologique de 288m² à Ariana avec Wi-Fi 5G 160 Mbps, 100+ plantes, salles de réunion et équipements premium. Lieu de formation permanent pour cabinets de formation, associations et clubs. Programmes récurrents, jours fixes, partenariats à long terme.</p>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Liens rapides</h3>
+                        <!-- CONVERTED: Navigation links updated for anchor navigation, Events removed -->
+                        <ul style="list-style: none;">
+                            <li><a href="#hero">Accueil</a></li>
+                            <li><a href="#amenities">Équipements</a></li>
+                            <li><a href="#who-for">Pour qui</a></li>
+                            <li><a href="#how-it-works">Comment ça fonctionne</a></li>
+                            <li><a href="#partners">Partenaires</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Contact</h3>
+                        <p>Rue de l'or soukra ariena</p>
+                        <p><a href="tel:54451627" style="color: inherit; text-decoration: none;">54451627</a></p>
+                        <p><a href="mailto:contact@thebarncoworkingspace.com" style="color: var(--accent-beige); text-decoration: none;">contact@thebarncoworkingspace.com</a></p>
+                    </div>
+                </div>
+                <div class="text-center" style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #444;">
+                    <p>&copy; <script>document.write(new Date().getFullYear())</script> The Barn Coworking. Tous droits réservés.</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- CONVERTED: Smooth scrolling JavaScript - No PHP logic -->
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
